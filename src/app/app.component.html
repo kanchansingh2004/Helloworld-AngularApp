@@ -1,12 +1,14 @@
 <div class="container">
   <div class="inner-container">
     <h2>{{title}}</h2>
-  <a href=""><img [src]="imgUrl" (click)="onClick()"
+  <a href="">
+    
+    <img [src]="imgUrl" (click)="onClick()"
     alt="BridgeLabz Logo"></a>
 
-    <input type="text" [(ngModel)]="userName"/>
-    <h2>Hello {{this.userName}} from BridgeLabz</h2>
+    <input type="text" [(ngModel)]="userName" (input)="validation()"/>
+    <p>{{this.errorMessage}}</p>
+    <h2 *ngIf="userName && !errorMessage">Hello {{this.userName}} from BridgeLabz</h2>
   </div>
-  
 </div>
 <router-outlet />
